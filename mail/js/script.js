@@ -8,12 +8,19 @@
 var email = prompt("Inserisci il tuo indirizzo e-mail per controllare lo stato dell'iscrizione");
 var mailingList = ["tiziocaio@gmail.com","pippo@yahoo.com","paperino@yahoo.it","federica@gmail.com","prova@dominio.it"];
 
+// l'esito di default è negativo
+var esitoPositivo = false;
+
+// registriamo l'esito positivo
 for (var i = 0; i < mailingList.length; i++) {
     if (email == mailingList[i]) {
-        var esito = "Sei già iscritto alla newsletter!";
-    } else {
-        var esito = "Non sei ancora iscritto alla newsletter!";
+        esitoPositivo = true;
     }
 }
 
-document.getElementById("esito").innerHTML = esito;
+// diamo un messaggio in base all'esito del controllo
+if (esitoPositivo) {
+    document.getElementById("esito").innerHTML = "Sei già iscritto alla newsletter!";
+} else {
+    document.getElementById("esito").innerHTML = "Non sei ancora iscritto alla newsletter!";
+}
